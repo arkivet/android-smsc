@@ -15,6 +15,8 @@ import android.widget.SimpleCursorAdapter;
 public class Messages extends ActionBarActivity {
 
     private static final String TAG = "MyActivity";
+    public static final String BODY = "body";
+    public static final String SERVICE_CENTER = "service_center";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,8 @@ public class Messages extends ActionBarActivity {
         final ListView listview = (ListView) findViewById(R.id.listView);
 
         String[] columns = new String[]{
-                Telephony.TextBasedSmsColumns.BODY,
-                Telephony.TextBasedSmsColumns.SERVICE_CENTER
+                BODY,
+                SERVICE_CENTER
         };
 
         // the XML defined views which the data will be bound to
@@ -56,7 +58,7 @@ public class Messages extends ActionBarActivity {
             }
 
             private boolean columnIsServiceCenter(int columnIndex) {
-                return columnIndex == getColumnIndex(Telephony.TextBasedSmsColumns.SERVICE_CENTER);
+                return columnIndex == getColumnIndex(SERVICE_CENTER);
             }
 
 
